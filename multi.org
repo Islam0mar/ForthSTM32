@@ -1,0 +1,58 @@
+@   SINGLE	( -- )
+@		main task.
+	defword "SINGLE",6,,SINGLE
+	.4byte QUIT
+
+@   MULTI	( -- )
+@		main task.
+	defcode "MULTI",6,,MULTI
+	
+	
+@   TASK <name>	( stackSize returnStackSize -- )
+@		initialize task and put it in round robin loop.
+@		name when called returns the address of the created task.
+
+
+@   ACTIVATE	( tid -- )
+@		link the following definition to task.
+
+
+
+@   SLEEP	( tid -- )
+@		sleep  task.
+
+@   AWAKE	( tid -- )
+@		awake task.
+
+
+@   TASKS	( -- )
+@		list current tasks.
+
+
+@@@ SEMAPHORES
+@@ 	: WAIT ( addr -- ) 
+@@         BEGIN PAUSE DUP C@ UNTIL         \ wait for nonzero = available 
+@@         0 SWAP ! ;                       \ make it zero = unavailable
+
+@@ : SIGNAL ( addr -- ) 
+@@         1 SWAP ! ;                       \ make it nonzero = available
+
+@@@ messaging
+@@ : SEND ( message taskadr -- ) 
+@@         MYTASK 
+@@         OVER SENDER LOCAL       get adrs of destination's SENDER 
+@@         BEGIN 
+@@         PAUSE                   loop with PAUSE, 
+@@         DUP @                   until his SENDER is zero 
+@@         0= UNTIL 
+@@         !                       store my adrs in his SENDER 
+@@         MESSAGE LOCAL ! ;       store the message in his MESSAGE
+
+@@ : RECEIVE ( -- message taskadr ) 
+@@         BEGIN 
+@@         PAUSE                   loop with PAUSE, 
+@@         SENDER @                until my SENDER is nonzero 
+@@         UNTIL 
+@@         MESSAGE @               get the message from my MESSAGE 
+@@         SENDER @                get his task adr from my SENDER 
+@@         0 SENDER ! ;            indicate mailbox empty & ready

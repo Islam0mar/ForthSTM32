@@ -1,0 +1,149 @@
+#+TITLE: SFORTH-MODEL
+#+AUTHOR: Islam Omar Ahmed
+#+EMAIL: io1131@fayoum.edu.eg
+
+#+OPTIONS: H:4
+
+* TODO reupload
+* DONE TIMER FOR DELAYs
+  CLOSED: [2017-09-05 Tue 08:56]
+* DONE POWER SOLUTION FOR LAPTOP
+  CLOSED: [2017-09-06 Wed 03:53]
+* TODO STEPPER
+* TESTS:
+** DONE DODOES>
+   CLOSED: [2017-09-04 Mon 06:14]
+** DONE C2FLASH/C2RAM
+   CLOSED: [2017-09-04 Mon 06:14]
+** DONE MULTI/TASK/ACTIVATE
+   CLOSED: [2017-09-04 Mon 06:14]
+** DONE INTERRUPTS
+   CLOSED: [2017-09-05 Tue 08:57]
+** TODO KILL TASK
+** TODO LIST TASKS
+* TODO:
+** DONE INPUT BUFFER
+   CLOSED: [2017-08-29 Tue 22:27]
+** INTERRUPTS:
+*** TODO handle overrun error
+*** DONE variable vector table
+	CLOSED: [2017-08-20 Sun 18:28]
+*** DONE INTERRUPT word used to set a specified word to an interrrupt
+	CLOSED: [2017-08-20 Sun 18:28]
+** MULTITASKING:
+*** DONE TASK WORD
+	CLOSED: [2017-08-22 Tue 00:37]
+*** DONE ACTIVATE WORD
+	CLOSED: [2017-08-22 Tue 01:31]
+*** DONE SLEEP WORD
+	CLOSED: [2017-08-21 Mon 16:51]
+*** DONE AWAKE WORD
+	CLOSED: [2017-08-21 Mon 23:17]
+
+** SEMAPHORES:
+** MESSAGES:
+** DONE START WORD AFTER POWER ON
+   CLOSED: [2017-08-21 Mon 23:15]
+* DICTIONARY: 
+** CODEWORD:
+|--------------|
+| LINK         |
+|--------------|
+| LENGTH       |
+|--------------|
+| NAME         |
+|--------------|
+| ALIGNMENT    |
+|--------------|
+| MACHINE CODE |
+|--------------|
+| ALIGNMENT    |
+|--------------|
+|              |
+** WORD:
+|---------------------------------------|
+| LINK                                  |
+|---------------------------------------|
+| LENGTH                                |
+|---------------------------------------|
+| NAME                                  |
+|---------------------------------------|
+| ALIGNMENT                             |
+|---------------------------------------|
+| DOCOL                                 |
+|---------------------------------------|
+| ADDRESS OF CODE WORDS OR MACHINE CODE |
+|---------------------------------------|
+** DODOES:
+|----------------|
+| LINK           |
+|----------------|
+| LENGTH         |
+|----------------|
+| NAME           |
+|----------------|
+| ALIGNMENT      |
+|----------------|
+| DODOES         |
+|----------------|
+| OFFSET         |
+|----------------|
+| DATA           |
+|----------------|
+| BEHAVIOR WORDS |
+|----------------|
+* MULTITASKING:
+** TASK BLOCK:
+|-------------------------------|
+| HEADER (LINK, LENGTH, NAME)   |
+|-------------------------------|
+| WAKE / SLEEP (GOTO)           |
+|-------------------------------|
+| ADDRESS OF THE FOLLOWING TASK |
+|-------------------------------|
+| DSP                           |
+|-------------------------------|
+| DATA STACK ( TOS RSP )        |
+|-------------------------------|
+| RETURN STACK ( FPC )          |
+|-------------------------------|
+
+* WORDS:
+
+** DROP 
+   ( a -- )
+** SWAP  
+   ( a b -- b a )
+** DUP 
+   ( a -- a a )
+** OVER 
+   ( a b c -- a b c b )
+** ROT 
+   ( a b c -- b c a)
+** -ROT 
+   ( a b c -- c a b )
+** 2DROP 
+   ( a b -- )
+** 2DUP 
+   (a b -- a b a b)
+** 2SWAP
+   ( a b c d -- c d a b)
+** ?DUP
+   ( 0 -- 0 | a -- a a )
+** 1+ 
+   ( a -- a+1 )
+** 1-
+   ( a -- a-1)
+** 4+
+   ( a -- a+4)
+** 4-
+   ( a -- a-4)
+** +
+   ( a b -- a+b )
+** -
+   ( a b -- a-b )
+** *
+   ( a b -- a*b )
+** /
+   ( a b -- a/b )
+   
