@@ -11,12 +11,12 @@ Forth targetting stm32f103 in assembly. It used code and ideas from {[jonesforth
 
 ## TODO
 
-[] Add SEMAPHORES SIGNAL messaging They are defined--stolen-- here, [multi.org](https://github.com/Islam0mar/ForthSTM32/blob/master/multi.org)
-[] Complete [G-CODE.f](https://github.com/Islam0mar/ForthSTM32/blob/master/forth-src/G-CODE.f) parser.
-[] Write lisp inside forth.
-[] Upload videos.
-[] Rewrite in C to be more portable [ForthSTM32C](https://github.com/Islam0mar/ForthSTM32C), but making it ansi-C99 and indirected threaded isn't efficient or I can't figure it out.
-[] Rewrite compile to FLASH --without pre-initializing all code blocks to 1--
+- [ ] Add SEMAPHORES SIGNAL messaging They are defined--stolen-- here, [multi.org](https://github.com/Islam0mar/ForthSTM32/blob/master/multi.org)
+- [ ] Complete [G-CODE.f](https://github.com/Islam0mar/ForthSTM32/blob/master/forth-src/G-CODE.f) parser.
+- [ ] Write lisp inside forth.
+- [ ] Upload videos.
+- [ ] Rewrite in C to be more portable [ForthSTM32C](https://github.com/Islam0mar/ForthSTM32C), but making it ansi-C99 and indirected threaded isn't efficient or I can't figure it out.
+- [ ] Rewrite compile to FLASH --without pre-initializing all code blocks to 1--
 
 ## Copyright
 
